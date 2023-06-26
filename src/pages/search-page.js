@@ -66,7 +66,7 @@ const SearchPage = () => {
                     </button>
                 </div>
 
-                <div className={"w-5/6 grid grid-cols-3 gap-4"}>
+                <div className={"w-5/6 grid grid-cols-3 gap-5 mt-5"}>
                     {words.map((word, index) => {
                         return <Word key={word.id} word={word.word} index={index}/>
                     })}

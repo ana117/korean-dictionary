@@ -1,4 +1,14 @@
+import {useState} from "react";
+import WordDetail from "./word-detail";
+
 const Word = ({word, index}) => {
+    const [showDetails, setShowDetails] = useState(false);
+
+    const showDetailModal = (event) => {
+        event.preventDefault();
+        setShowDetails(true);
+    }
+
     const code = word.getElementsByTagName("target_code")[0].childNodes[0].nodeValue;
     const name = word.getElementsByTagName("word")[0].childNodes[0].nodeValue;
     const meanings = [];
@@ -16,15 +26,19 @@ const Word = ({word, index}) => {
     }
 
     return (
-        <div
-            className={`flex flex-col justify-center items-center bg-white p-5 m-5 rounded-xl shadow-xl ${index === 0 ? 'col-span-3' : ''}`}>
-            <h1 className={"text-3xl font-bold"}>{name}</h1>
-            <ul>
-                {meanings.map((meaning) => {
-                    return <li key={meaning.id}>{meaning.translation} - {meaning.definition}</li>
-                })}
-            </ul>
-        </div>
+        <>
+            <button onClick={event => showDetailModal(event)} className={`flex flex-col justify-center items-center bg-white p-5 my-5 rounded-xl shadow-xl ${index === 0 ? 'col-span-3' : ''}`}>
+                <div>
+                    <h1 className={"text-3xl font-bold"}>{name}</h1>
+                    <ul>
+                        {meanings.map((meaning) => {
+                            return <li key={meaning.id}>{meaning.translation}</li>
+                        })}
+                    </ul>
+                </div>
+            </button>
+            {showDetails && <WordDetail code={code} name={name} meanings={meanings} setShowDetails={setShowDetails}/>}
+        </>
     )
 }
 
