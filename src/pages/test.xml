@@ -1,0 +1,1350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<channel>
+	<title>한국어 기초사전 개발 지원(Open API) - 사전 검색</title>
+	<link>https://krdict.korean.go.kr</link>
+	<description>한국어 기초사전 개발 지원(Open API) - 사전 검색 결과</description>
+	<lastBuildDate>20230626232356</lastBuildDate> 
+	<total>53</total>
+	<start>1</start>
+	<num>10</num>
+	
+	
+	
+	<item>
+		
+		
+		<target_code>32750</target_code>
+		<word>나무</word>
+		<sup_no>0</sup_no>
+		
+		
+		<pronunciation>나무</pronunciation>
+		
+		
+		<word_grade>초급</word_grade>
+		
+		<pos>명사</pos>
+		<link>https://krdict.korean.go.kr/dicSearch/SearchView?ParaWordNo=32750</link>
+		
+		
+		<sense>
+			<sense_order>1</sense_order>
+			<definition>단단한 줄기에 가지와 잎이 달린, 여러 해 동안 자라는 식물.</definition>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<translation>
+				<trans_lang>
+				
+				
+				
+				
+				
+				
+				영어
+				
+				
+				
+				
+				
+				</trans_lang>
+				<trans_word><![CDATA[tree]]></trans_word>
+				<trans_dfn><![CDATA[A plant with a hard stem, branches and leaves.]]></trans_dfn>
+			</translation>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</sense>
+		
+		<sense>
+			<sense_order>2</sense_order>
+			<definition>집이나 가구 등을 만드는 데 사용하는 재목.</definition>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<translation>
+				<trans_lang>
+				
+				
+				
+				
+				
+				
+				영어
+				
+				
+				
+				
+				
+				</trans_lang>
+				<trans_word><![CDATA[wood]]></trans_word>
+				<trans_dfn><![CDATA[The material used to build a house or to make furniture.]]></trans_dfn>
+			</translation>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</sense>
+		
+		<sense>
+			<sense_order>3</sense_order>
+			<definition>불을 때기 위해 베어 놓은 나무의 줄기나 가지.</definition>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<translation>
+				<trans_lang>
+				
+				
+				
+				
+				
+				
+				영어
+				
+				
+				
+				
+				
+				</trans_lang>
+				<trans_word><![CDATA[timber; log]]></trans_word>
+				<trans_dfn><![CDATA[The trunk or branches of a tree cut to be used as firewood.]]></trans_dfn>
+			</translation>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</sense>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</item>
+	
+	<item>
+		
+		
+		<target_code>38842</target_code>
+		<word>나무라다</word>
+		<sup_no>0</sup_no>
+		
+		
+		<pronunciation>나무라다</pronunciation>
+		
+		
+		<word_grade>중급</word_grade>
+		
+		<pos>동사</pos>
+		<link>https://krdict.korean.go.kr/dicSearch/SearchView?ParaWordNo=38842</link>
+		
+		
+		<sense>
+			<sense_order>1</sense_order>
+			<definition>잘못을 꾸짖어 잘 알아듣게 말하다.</definition>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<translation>
+				<trans_lang>
+				
+				
+				
+				
+				
+				
+				영어
+				
+				
+				
+				
+				
+				</trans_lang>
+				<trans_word><![CDATA[scold; rebuke]]></trans_word>
+				<trans_dfn><![CDATA[To scold someone for his/her fault in a way that he/she will understand well.]]></trans_dfn>
+			</translation>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</sense>
+		
+		<sense>
+			<sense_order>2</sense_order>
+			<definition>사람의 말이나 행동, 성격에서 잘못된 점이나 부족한 점을 지적하여 말하다.</definition>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<translation>
+				<trans_lang>
+				
+				
+				
+				
+				
+				
+				영어
+				
+				
+				
+				
+				
+				</trans_lang>
+				<trans_word><![CDATA[criticize]]></trans_word>
+				<trans_dfn><![CDATA[To point out and let one know of one's mistake or the weakness of one's words, actions, or personality.]]></trans_dfn>
+			</translation>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</sense>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</item>
+	
+	<item>
+		
+		
+		<target_code>38847</target_code>
+		<word>나무하다</word>
+		<sup_no>0</sup_no>
+		
+		
+		<pronunciation>나무하다</pronunciation>
+		
+		
+		<pos>동사</pos>
+		<link>https://krdict.korean.go.kr/dicSearch/SearchView?ParaWordNo=38847</link>
+		
+		
+		<sense>
+			<sense_order>1</sense_order>
+			<definition>산에서 나무를 베거나 줍거나 해서 땔감으로 쓸 나무를 구하다.</definition>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<translation>
+				<trans_lang>
+				
+				
+				
+				
+				
+				
+				영어
+				
+				
+				
+				
+				
+				</trans_lang>
+				<trans_word><![CDATA[gather firewood]]></trans_word>
+				<trans_dfn><![CDATA[To cut trees or pick up wood in the mountain for fuel.]]></trans_dfn>
+			</translation>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</sense>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</item>
+	
+	<item>
+		
+		
+		<target_code>38845</target_code>
+		<word>나무아미타불</word>
+		<sup_no>1</sup_no>
+		
+		<origin>南無阿彌陀佛</origin>
+		
+		
+		<pronunciation>나무아미타불</pronunciation>
+		
+		
+		<pos>명사</pos>
+		<link>https://krdict.korean.go.kr/dicSearch/SearchView?ParaWordNo=38845</link>
+		
+		
+		<sense>
+			<sense_order>1</sense_order>
+			<definition>불교에서, 염불을 할 때 외는 말.</definition>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<translation>
+				<trans_lang>
+				
+				
+				
+				
+				
+				
+				영어
+				
+				
+				
+				
+				
+				</trans_lang>
+				<trans_word><![CDATA["I sincerely believe in Amitabha"]]></trans_word>
+				<trans_dfn><![CDATA[A set of words or a mantra recited when praying to Amitabha in Buddhism.]]></trans_dfn>
+			</translation>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</sense>
+		
+		<sense>
+			<sense_order>2</sense_order>
+			<definition>많은 힘과 노력을 들인 일이 아무런 성과가 없이 끝나는 것.</definition>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<translation>
+				<trans_lang>
+				
+				
+				
+				
+				
+				
+				영어
+				
+				
+				
+				
+				
+				</trans_lang>
+				<trans_word><![CDATA[failure; exercise in futility]]></trans_word>
+				<trans_dfn><![CDATA[Something ending without reaping any fruits despite much effort and labor put into it.  ]]></trans_dfn>
+			</translation>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</sense>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</item>
+	
+	<item>
+		
+		
+		<target_code>38841</target_code>
+		<word>나무꾼</word>
+		<sup_no>0</sup_no>
+		
+		
+		<pronunciation>나무꾼</pronunciation>
+		
+		
+		<pos>명사</pos>
+		<link>https://krdict.korean.go.kr/dicSearch/SearchView?ParaWordNo=38841</link>
+		
+		
+		<sense>
+			<sense_order>1</sense_order>
+			<definition>(옛날에) 산에서 땔나무를 구해서 사람들에게 파는 것을 직업으로 하는 사람.</definition>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<translation>
+				<trans_lang>
+				
+				
+				
+				
+				
+				
+				영어
+				
+				
+				
+				
+				
+				</trans_lang>
+				<trans_word><![CDATA[woodcutter; woodman; lumberjack]]></trans_word>
+				<trans_dfn><![CDATA[(archaic) A person who makes a living by cutting and selling firewood.]]></trans_dfn>
+			</translation>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</sense>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</item>
+	
+	<item>
+		
+		
+		<target_code>17919</target_code>
+		<word>나무뿌리</word>
+		<sup_no>0</sup_no>
+		
+		
+		<pronunciation>나무뿌리</pronunciation>
+		
+		
+		<pos>명사</pos>
+		<link>https://krdict.korean.go.kr/dicSearch/SearchView?ParaWordNo=17919</link>
+		
+		
+		<sense>
+			<sense_order>1</sense_order>
+			<definition>나무의 뿌리.</definition>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<translation>
+				<trans_lang>
+				
+				
+				
+				
+				
+				
+				영어
+				
+				
+				
+				
+				
+				</trans_lang>
+				<trans_word><![CDATA[root]]></trans_word>
+				<trans_dfn><![CDATA[The root of a tree.]]></trans_dfn>
+			</translation>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</sense>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</item>
+	
+	<item>
+		
+		
+		<target_code>38844</target_code>
+		<word>나무람</word>
+		<sup_no>0</sup_no>
+		
+		
+		<pronunciation>나무람</pronunciation>
+		
+		
+		<pos>명사</pos>
+		<link>https://krdict.korean.go.kr/dicSearch/SearchView?ParaWordNo=38844</link>
+		
+		
+		<sense>
+			<sense_order>1</sense_order>
+			<definition>잘못을 꾸짖어 잘 알아듣게 말하는 것. 또는 잘못을 꾸짖어 잘 알아듣게 해 주는 말.</definition>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<translation>
+				<trans_lang>
+				
+				
+				
+				
+				
+				
+				영어
+				
+				
+				
+				
+				
+				</trans_lang>
+				<trans_word><![CDATA[scolding; reproach; blaming]]></trans_word>
+				<trans_dfn><![CDATA[An act of pointing out the fault of someone and advising the person on how to behave better next time, or the remark itself.]]></trans_dfn>
+			</translation>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</sense>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</item>
+	
+	<item>
+		
+		
+		<target_code>17918</target_code>
+		<word>나무배</word>
+		<sup_no>0</sup_no>
+		
+		
+		<pronunciation>나무배</pronunciation>
+		
+		
+		<pos>명사</pos>
+		<link>https://krdict.korean.go.kr/dicSearch/SearchView?ParaWordNo=17918</link>
+		
+		
+		<sense>
+			<sense_order>1</sense_order>
+			<definition>나무로 만든 배.</definition>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<translation>
+				<trans_lang>
+				
+				
+				
+				
+				
+				
+				영어
+				
+				
+				
+				
+				
+				</trans_lang>
+				<trans_word><![CDATA[wooden ship]]></trans_word>
+				<trans_dfn><![CDATA[A ship made of wood.]]></trans_dfn>
+			</translation>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</sense>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</item>
+	
+	<item>
+		
+		
+		<target_code>38846</target_code>
+		<word>나무아미타불</word>
+		<sup_no>2</sup_no>
+		
+		<origin>南無阿彌陀佛</origin>
+		
+		
+		<pronunciation>나무아미타불</pronunciation>
+		
+		
+		<pos>감탄사</pos>
+		<link>https://krdict.korean.go.kr/dicSearch/SearchView?ParaWordNo=38846</link>
+		
+		
+		<sense>
+			<sense_order>1</sense_order>
+			<definition>불교에서, 염불을 할 때 외는 소리.</definition>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<translation>
+				<trans_lang>
+				
+				
+				
+				
+				
+				
+				영어
+				
+				
+				
+				
+				
+				</trans_lang>
+				<trans_word><![CDATA[save us, merciful Buddha]]></trans_word>
+				<trans_dfn><![CDATA[A word used in Buddhism when chanting a Buddhist prayer .]]></trans_dfn>
+			</translation>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</sense>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</item>
+	
+	<item>
+		
+		
+		<target_code>17920</target_code>
+		<word>나무숲</word>
+		<sup_no>0</sup_no>
+		
+		
+		<pronunciation>나무숩</pronunciation>
+		
+		
+		<pos>명사</pos>
+		<link>https://krdict.korean.go.kr/dicSearch/SearchView?ParaWordNo=17920</link>
+		
+		
+		<sense>
+			<sense_order>1</sense_order>
+			<definition>잘 자란 나무가 많은 숲.</definition>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<translation>
+				<trans_lang>
+				
+				
+				
+				
+				
+				
+				영어
+				
+				
+				
+				
+				
+				</trans_lang>
+				<trans_word><![CDATA[woods; forest]]></trans_word>
+				<trans_dfn><![CDATA[A dense forest with many tall trees.]]></trans_dfn>
+			</translation>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</sense>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</item>
+	
+	
+	
+</channel>
+
+
+
