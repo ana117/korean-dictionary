@@ -3,6 +3,7 @@ import Navbar from "../components/navbar";
 import Word from "../components/word";
 
 import data from "./test.xml"
+import keyboardSVG from "../assets/keyboard.svg";
 
 const API_URL = "https://krdict.korean.go.kr/api/search";
 const SearchPage = () => {
@@ -58,9 +59,12 @@ const SearchPage = () => {
         <section className={"h-screen flex flex-col"}>
             <Navbar/>
             <main className={"flex flex-col justify-center items-center m-10 max-h-full overflow-auto"}>
-                <div className={"w-5/6 flex justify-center items-center"}>
-                    <input type={"text"} placeholder={"Type Korean Word"} value={search} onChange={handleSearchChange}
-                           className={"w-4/6 lg:w-5/6 py-2 px-5 rounded-2xl rounded-e-none text-lg border-black border-2 focus:outline-0"}/>
+                <div className={"w-5/6 flex items-center relative"}>
+                    <div className={"w-4/6 lg:w-5/6 flex justify-end items-center"}>
+                        <img src={keyboardSVG} alt={"keyboard"} className={"absolute h-4/6 cursor-pointer mr-8"}/>
+                        <input id={"search-bar"} type={"text"} placeholder={"Type Korean Word"} value={search} onChange={handleSearchChange}
+                               className={"w-full py-2 px-5 rounded-2xl rounded-e-none text-lg border-black border-2 focus:outline-0"}/>
+                    </div>
                     <button type={"button"} onClick={fetchWords}
                             className={"w-2/6 lg:w-1/6 ease-in duration-500 py-2 px-5 rounded-2xl rounded-s-none bg-black text-white text-lg font-bold border-black border-2"}>Search
                     </button>
