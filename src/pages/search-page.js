@@ -4,14 +4,23 @@ import Word from "../components/word";
 
 import data from "./test.xml"
 import keyboardSVG from "../assets/keyboard.svg";
+import VirtualKeyboard from "../components/VirtualKeyboard";
 
 const API_URL = "https://krdict.korean.go.kr/api/search";
 const SearchPage = () => {
     const [words, setWords] = useState([]);
     const [search, setSearch] = useState("");
 
-    const handleSearchChange = (event) => {
-        setSearch(event.target.value);
+    const Hangul = require('hangul-js');
+
+    const updateSearch = (newSearch) => {
+        let disassembled = Hangul.disassemble(newSearch);
+        let assembled = Hangul.assemble(disassembled);
+        setSearch(assembled);
+    }
+
+    const handleInputChange = (event) => {
+        updateSearch(event.target.value);
     }
 
     const fetchWords = async () => {
@@ -62,7 +71,7 @@ const SearchPage = () => {
                 <div className={"w-5/6 flex items-center relative"}>
                     <div className={"w-4/6 lg:w-5/6 flex justify-end items-center"}>
                         <img src={keyboardSVG} alt={"keyboard"} className={"absolute h-4/6 cursor-pointer mr-8"}/>
-                        <input id={"search-bar"} type={"text"} placeholder={"Type Korean Word"} value={search} onChange={handleSearchChange}
+                        <input id={"search-bar"} type={"text"} placeholder={"Type Korean Word"} value={search} onChange={handleInputChange}
                                className={"w-full py-2 px-5 rounded-2xl rounded-e-none text-lg border-black border-2 focus:outline-0"}/>
                     </div>
                     <button type={"button"} onClick={fetchWords}
@@ -76,6 +85,7 @@ const SearchPage = () => {
                     })}
                 </div>
             </main>
+            <VirtualKeyboard search={search} updateSearch={updateSearch}/>
         </section>
     );
 }
