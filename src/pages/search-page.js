@@ -15,7 +15,7 @@ const SearchPage = () => {
 
     const fetchWords = async () => {
         const params = {
-            key: "3635F04F0A3F3E75159A99CC61318E92",
+            key: "-",
             q: search,
             sort: "popular",
             part: "word",
@@ -55,18 +55,18 @@ const SearchPage = () => {
 
 
     return (
-        <section className={"min-h-screen flex flex-col bg-red-100"}>
+        <section className={"h-screen flex flex-col"}>
             <Navbar/>
-            <main className={"flex flex-col justify-center items-center m-10"}>
+            <main className={"flex flex-col justify-center items-center m-10 max-h-full overflow-auto"}>
                 <div className={"w-5/6 flex justify-center items-center"}>
                     <input type={"text"} placeholder={"Type Korean Word"} value={search} onChange={handleSearchChange}
-                           className={"w-5/6 py-2 px-5 border border-gray-400 rounded-2xl rounded-e-none text-lg border-black border-2 focus:outline-0"}/>
+                           className={"w-4/6 lg:w-5/6 py-2 px-5 rounded-2xl rounded-e-none text-lg border-black border-2 focus:outline-0"}/>
                     <button type={"button"} onClick={fetchWords}
-                            className={"w-1/6 py-2 px-5 border border-gray-400 rounded-2xl rounded-s-none bg-black text-white text-lg font-bold border-black border-2"}>Search
+                            className={"w-2/6 lg:w-1/6 ease-in duration-500 py-2 px-5 rounded-2xl rounded-s-none bg-black text-white text-lg font-bold border-black border-2"}>Search
                     </button>
                 </div>
 
-                <div className={"w-5/6 grid grid-cols-3 gap-5 mt-5"}>
+                <div className={"w-5/6 px-5 pb-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 overflow-auto"}>
                     {words.map((word, index) => {
                         return <Word key={word.id} word={word.word} index={index}/>
                     })}

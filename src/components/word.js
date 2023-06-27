@@ -27,7 +27,7 @@ const Word = ({word, index}) => {
 
     return (
         <>
-            <button onClick={event => showDetailModal(event)} className={`flex flex-col justify-center items-center bg-white p-5 my-5 rounded-xl shadow-xl ${index === 0 ? 'col-span-3' : ''}`}>
+            <button onClick={event => showDetailModal(event)} className={`flex flex-col justify-center items-center p-5 my-5 rounded-xl shadow-xl bg-tertiary ${index === 0 ? 'md:col-span-2 lg:col-span-3 sticky top-0' : ''}`}>
                 <div>
                     <h1 className={"text-3xl font-bold"}>{name}</h1>
                     <ul>
