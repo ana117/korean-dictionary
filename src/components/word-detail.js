@@ -11,8 +11,7 @@ const WordDetail = ({code, name, meanings, setShowDetails}) => {
                     {meanings.map((meaning, index) => {
                         return (
                             <li className={"my-5 text-xl"} key={meaning.id}>
-                                                <span
-                                                    className={"font-bold"}>{index + 1}. {meaning.translation}</span><br/>
+                                <span className={"font-bold"}>{index + 1}. {meaning.translation}</span><br/>
                                 {meaning.definition}
                             </li>
                         )

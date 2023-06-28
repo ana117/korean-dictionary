@@ -28,14 +28,20 @@ const Word = ({word, index}) => {
         }
     } else {
         const translated_sense = sense["translation"];
-        const translation = translated_sense["trans_word"]
-        const definition = translated_sense["trans_dfn"]
+        let translation, definition;
+        if (translated_sense === undefined) {
+            translation = "No translation available";
+            definition = "";
+        } else {
+            translation = translated_sense["trans_word"];
+            definition = translated_sense["trans_dfn"];
+        }
 
         meanings.push({
             "id": code + "-0",
             "translation": translation,
             "definition": definition
-        })
+        });
     }
 
 
