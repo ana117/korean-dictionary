@@ -26,6 +26,11 @@ const SearchPage = () => {
     }
 
     const fetchWords = async () => {
+        if (search === "") {
+            setError("Please enter a word to search");
+            return;
+        }
+
         const params = {
             key: process.env.REACT_APP_API_KEY,
             q: search,
@@ -38,6 +43,7 @@ const SearchPage = () => {
         const url = new URL(process.env.REACT_APP_API_URL);
         url.search = new URLSearchParams(params).toString();
 
+        setWords([]);
         setError("");
         setShowLoading(true);
         fetch(url)
@@ -77,7 +83,7 @@ const SearchPage = () => {
                     <div className={"w-full lg:w-5/6 flex justify-end items-center"}>
                         <img src={keyboardSVG} alt={"keyboard"} className={"absolute h-4/6 cursor-pointer mr-8 hidden md:block"}
                              onClick={handleShowKeyboard}/>
-                        <input id={"search-bar"} type={"text"} placeholder={"Type Korean Word"} value={search}
+                        <input id={"search-bar"} type={"text"} placeholder={"Type Korean Word"}
                                onChange={handleInputChange}
                                className={"w-full py-2 ps-5 pe-20 rounded-2xl rounded-e-none text-lg border-black border-2 focus:outline-0"}/>
                     </div>
