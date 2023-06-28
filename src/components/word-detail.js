@@ -5,9 +5,8 @@ const WordDetail = ({code, name, meanings, setShowDetails}) => {
 
     const content = (
         <>
-            <div className={"w-full"}>
-                <h1 className={"text-4xl font-bold text-center"}>{name}</h1>
-                <ul className={"my-5"}>
+            <div>
+                <ul>
                     {meanings.map((meaning, index) => {
                         return (
                             <li className={"my-5 text-xl"} key={meaning.id}>
@@ -18,7 +17,7 @@ const WordDetail = ({code, name, meanings, setShowDetails}) => {
                     })}
                 </ul>
             </div>
-            <div className={"flex w-full"}>
+            <div className={"flex w-full mb-5"}>
                 <a className={"px-3 py-1 font-semibold border-black border-2 rounded-lg hover:drop-shadow-lg hover:bg-black hover:text-white"}
                    href={link} target={"_blank"} rel={"noreferrer"}>
                     Source
@@ -27,7 +26,7 @@ const WordDetail = ({code, name, meanings, setShowDetails}) => {
         </>
     );
 
-    return <Modal content={content} setShow={setShowDetails}/>
+    return <Modal title={name} content={content} setShow={setShowDetails}/>
 }
 
 export default WordDetail;

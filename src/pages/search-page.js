@@ -72,9 +72,9 @@ const SearchPage = () => {
         <section className={"h-screen flex flex-col"}>
             <Navbar/>
             <main className={"flex flex-col justify-center items-center m-10 max-h-full overflow-auto"}>
-                <div className={"w-5/6 flex items-center relative"}>
-                    <div className={"w-4/6 lg:w-5/6 flex justify-end items-center"}>
-                        <img src={keyboardSVG} alt={"keyboard"} className={"absolute h-4/6 cursor-pointer mr-8"}
+                <div className={"w-full flex items-center relative"}>
+                    <div className={"w-full lg:w-5/6 flex justify-end items-center"}>
+                        <img src={keyboardSVG} alt={"keyboard"} className={"absolute h-4/6 cursor-pointer mr-8 hidden md:block"}
                              onClick={handleShowKeyboard}/>
                         <input id={"search-bar"} type={"text"} placeholder={"Type Korean Word"} value={search}
                                onChange={handleInputChange}
@@ -106,7 +106,7 @@ const SearchPage = () => {
             </main>
 
             <div className={"flex justify-center w-full"}>
-                <div className={"w-full max-w-5xl"}>
+                <div className={"w-full max-w-5xl hidden md:block"}>
                     {showKeyboard && <VirtualKeyboard search={search} updateSearch={updateSearch}/>}
                 </div>
             </div>
