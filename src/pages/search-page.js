@@ -3,12 +3,15 @@ import Navbar from "../components/navbar";
 import Word from "../components/word";
 
 import keyboardSVG from "../assets/keyboard.svg";
+import loadingSVG from "../assets/loading.svg";
 import VirtualKeyboard from "../components/VirtualKeyboard";
 
 const SearchPage = () => {
     const [words, setWords] = useState([]);
     const [search, setSearch] = useState("");
     const [error, setError] = useState("");
+    const [showKeyboard, setShowKeyboard] = useState(false);
+    const [showLoading, setShowLoading] = useState(false);
 
     const Hangul = require('hangul-js');
 
@@ -34,9 +37,12 @@ const SearchPage = () => {
         const url = new URL(process.env.REACT_APP_API_URL);
         url.search = new URLSearchParams(params).toString();
 
+        setError("");
+        setShowLoading(true);
         fetch(url)
             .then(response => response.json())
             .then(data => {
+                setShowLoading(false);
                 if (data["error"]) {
                     let code = data["error"]["error_code"];
                     let msg = data["error"]["message"];
@@ -49,16 +55,18 @@ const SearchPage = () => {
                     setError("No results found");
                 } else {
                     let items = channel["item"];
-
-                    setError("");
                     setWords(items);
                 }
             })
-            .catch(error => {
+            .catch(() => {
+                setShowLoading(false);
                 setError("Error occurred");
-        });
+            });
     }
 
+    const handleShowKeyboard = () => {
+        setShowKeyboard(!showKeyboard);
+    }
 
     return (
         <section className={"h-screen flex flex-col"}>
@@ -66,15 +74,23 @@ const SearchPage = () => {
             <main className={"flex flex-col justify-center items-center m-10 max-h-full overflow-auto"}>
                 <div className={"w-5/6 flex items-center relative"}>
                     <div className={"w-4/6 lg:w-5/6 flex justify-end items-center"}>
-                        <img src={keyboardSVG} alt={"keyboard"} className={"absolute h-4/6 cursor-pointer mr-8"}/>
+                        <img src={keyboardSVG} alt={"keyboard"} className={"absolute h-4/6 cursor-pointer mr-8"}
+                             onClick={handleShowKeyboard}/>
                         <input id={"search-bar"} type={"text"} placeholder={"Type Korean Word"} value={search}
                                onChange={handleInputChange}
-                               className={"w-full py-2 px-5 rounded-2xl rounded-e-none text-lg border-black border-2 focus:outline-0"}/>
+                               className={"w-full py-2 ps-5 pe-20 rounded-2xl rounded-e-none text-lg border-black border-2 focus:outline-0"}/>
                     </div>
                     <button type={"button"} onClick={fetchWords}
                             className={"w-2/6 lg:w-1/6 ease-in duration-500 py-2 px-5 rounded-2xl rounded-s-none bg-black text-white text-lg font-bold border-black border-2"}>Search
                     </button>
                 </div>
+
+                {showLoading &&
+                    <h3 className={"text-2xl flex items-center font-semibold text-center mt-5"}>
+                        <img src={loadingSVG} alt={"loading"} className={"h-10 animate-spin-slow"}/>
+                        <p>Loading</p>
+                    </h3>
+                }
 
                 {error !== "" ?
                     (
@@ -88,7 +104,12 @@ const SearchPage = () => {
                     </div>)
                 }
             </main>
-            <VirtualKeyboard search={search} updateSearch={updateSearch}/>
+
+            <div className={"flex justify-center w-full"}>
+                <div className={"w-full max-w-5xl"}>
+                    {showKeyboard && <VirtualKeyboard search={search} updateSearch={updateSearch}/>}
+                </div>
+            </div>
         </section>
     );
 }
