@@ -2,8 +2,18 @@
 ReactJS web app using [Korean Dictionary API](https://krdict.korean.go.kr/openApi/openApiInfo) to search for Korean words and their definitions in English.
 
 
+## Features
+- Searching with Korean letter will return Korean word that matches the search query
+- Searching with English letter will return Korean word meaning that matches the search query
+
+
 ## Demo
 [Github Page](https://ana117.github.io/korean-dictionary/)
+
+<p align="middle">
+   <img src="../assets/demo-feature-1.png" alt="Feature 1" width="45%"/> 
+   <img src="../assets/demo-feature-2.png" alt="Feature 2" width="45%"/> 
+</p>
 
 
 ## Requirements
