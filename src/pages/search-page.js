@@ -30,7 +30,7 @@ const SearchPage = () => {
             trans_lang: "1",
         }
 
-        const url = new URL("http://localhost:5000/krdict");
+        const url = new URL(process.env.REACT_APP_API_URL);
         url.search = new URLSearchParams(params).toString();
 
         fetch(url)
