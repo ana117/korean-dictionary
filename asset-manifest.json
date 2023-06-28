@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/korean-dictionary/static/css/main.83450c54.css",
+    "main.js": "/korean-dictionary/static/js/main.b8b6b23f.js",
+    "static/js/787.6cff6bed.chunk.js": "/korean-dictionary/static/js/787.6cff6bed.chunk.js",
+    "static/media/keyboard.svg": "/korean-dictionary/static/media/keyboard.a53f81aeefcf5a8f4c6dff068aae8122.svg",
+    "index.html": "/korean-dictionary/index.html",
+    "main.83450c54.css.map": "/korean-dictionary/static/css/main.83450c54.css.map",
+    "main.b8b6b23f.js.map": "/korean-dictionary/static/js/main.b8b6b23f.js.map",
+    "787.6cff6bed.chunk.js.map": "/korean-dictionary/static/js/787.6cff6bed.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.83450c54.css",
+    "static/js/main.b8b6b23f.js"
+  ]
+}
