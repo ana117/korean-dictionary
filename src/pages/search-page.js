@@ -37,8 +37,14 @@ const SearchPage = () => {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                let channel = data["channel"];
+                if (data["error"]) {
+                    let code = data["error"]["error_code"];
+                    let msg = data["error"]["message"];
+                    setError(`Error ${code}: ${msg}`);
+                    return;
+                }
 
+                let channel = data["channel"];
                 if (channel["total"] === "0") {
                     setError("No results found");
                 } else {
@@ -47,7 +53,10 @@ const SearchPage = () => {
                     setError("");
                     setWords(items);
                 }
-            });
+            })
+            .catch(error => {
+                setError("Error occurred");
+        });
     }
 
 
@@ -68,9 +77,11 @@ const SearchPage = () => {
                 </div>
 
                 {error !== "" ?
-                    (<h3 className={"text-2xl font-semibold underline underline-offset-2 text-center mt-5"}>{error}</h3>)
+                    (
+                        <h3 className={"text-2xl font-semibold text-secondary underline underline-offset-2 text-center mt-5"}>{error}</h3>)
                     :
-                    (<div className={"w-5/6 px-5 pb-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 overflow-auto"}>
+                    (<div
+                        className={"w-5/6 px-5 pb-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 overflow-auto"}>
                         {words.map((word, index) => {
                             return <Word key={word['target_code']} word={word} index={index}/>
                         })}
