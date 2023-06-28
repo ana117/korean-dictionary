@@ -9,25 +9,40 @@ const Word = ({word, index}) => {
         setShowDetails(true);
     }
 
-    const code = word.getElementsByTagName("target_code")[0].childNodes[0].nodeValue;
-    const name = word.getElementsByTagName("word")[0].childNodes[0].nodeValue;
+    const code = word["target_code"];
+    const name = word["word"];
     const meanings = [];
 
-    for (let i = 0; i < word.getElementsByTagName("sense").length; i++) {
-        const sense = word.getElementsByTagName("sense")[i];
-        const translation = sense.getElementsByTagName("trans_word")[0].childNodes[0].nodeValue;
-        const definition = sense.getElementsByTagName("trans_dfn")[0].childNodes[0].nodeValue;
+    const sense = word["sense"];
+    if (Array.isArray(sense)) {
+        for (let i = 0; i < sense.length; i++) {
+            const translated_sense = sense[i]["translation"];
+            const translation = translated_sense["trans_word"]
+            const definition = translated_sense["trans_dfn"]
+
+            meanings.push({
+                "id": code + "-" + i,
+                "translation": translation,
+                "definition": definition
+            })
+        }
+    } else {
+        const translated_sense = sense["translation"];
+        const translation = translated_sense["trans_word"]
+        const definition = translated_sense["trans_dfn"]
 
         meanings.push({
-            "id": code + "-" + i,
+            "id": code + "-0",
             "translation": translation,
             "definition": definition
         })
     }
 
+
     return (
         <>
-            <button onClick={event => showDetailModal(event)} className={`flex flex-col justify-center items-center p-5 my-5 rounded-xl shadow-xl bg-tertiary ${index === 0 ? 'md:col-span-2 lg:col-span-3 sticky top-0' : ''}`}>
+            <button onClick={event => showDetailModal(event)}
+                    className={`flex flex-col justify-center items-center p-5 my-5 rounded-xl shadow-xl bg-tertiary ${index === 0 ? 'md:col-span-2 lg:col-span-3 sticky top-0' : ''}`}>
                 <div>
                     <h1 className={"text-3xl font-bold"}>{name}</h1>
                     <ul>
