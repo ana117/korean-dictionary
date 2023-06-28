@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/korean-dictionary/static/css/main.83450c54.css",
-    "main.js": "/korean-dictionary/static/js/main.38fcdb1a.js",
+    "main.css": "/korean-dictionary/static/css/main.6f67fdcc.css",
+    "main.js": "/korean-dictionary/static/js/main.0f4873db.js",
     "static/js/787.6cff6bed.chunk.js": "/korean-dictionary/static/js/787.6cff6bed.chunk.js",
+    "static/media/loading.svg": "/korean-dictionary/static/media/loading.ddde39b558bb2989f0feb71c40a69cbc.svg",
     "static/media/keyboard.svg": "/korean-dictionary/static/media/keyboard.a53f81aeefcf5a8f4c6dff068aae8122.svg",
     "index.html": "/korean-dictionary/index.html",
-    "main.83450c54.css.map": "/korean-dictionary/static/css/main.83450c54.css.map",
-    "main.38fcdb1a.js.map": "/korean-dictionary/static/js/main.38fcdb1a.js.map",
+    "main.6f67fdcc.css.map": "/korean-dictionary/static/css/main.6f67fdcc.css.map",
+    "main.0f4873db.js.map": "/korean-dictionary/static/js/main.0f4873db.js.map",
     "787.6cff6bed.chunk.js.map": "/korean-dictionary/static/js/787.6cff6bed.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.83450c54.css",
-    "static/js/main.38fcdb1a.js"
+    "static/css/main.6f67fdcc.css",
+    "static/js/main.0f4873db.js"
   ]
 }
