@@ -27,6 +27,7 @@ const SearchPage = () => {
 
     const fetchWords = async () => {
         const params = {
+            key: process.env.REACT_APP_API_KEY,
             q: search,
             sort: "popular",
             part: "word",

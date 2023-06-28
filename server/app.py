@@ -24,9 +24,10 @@ def krdict():
     base_url = 'https://krdict.korean.go.kr/api/search'
     request_params = request.args
 
-    params = {'key': os.getenv('KRDICT_KEY')}
+    params = dict()
     for key in request_params:
         params[key] = request_params[key]
+    params['key'] = os.getenv('KRDICT_KEY')
 
     response = requests.get(base_url, params=params, verify=_CERT_PATH)
     
