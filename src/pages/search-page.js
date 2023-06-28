@@ -8,6 +8,7 @@ import VirtualKeyboard from "../components/VirtualKeyboard";
 const SearchPage = () => {
     const [words, setWords] = useState([]);
     const [search, setSearch] = useState("");
+    const [error, setError] = useState("");
 
     const Hangul = require('hangul-js');
 
@@ -28,7 +29,7 @@ const SearchPage = () => {
             part: "word",
             translated: "y",
             trans_lang: "1",
-        }
+        };
 
         const url = new URL(process.env.REACT_APP_API_URL);
         url.search = new URLSearchParams(params).toString();
@@ -37,8 +38,15 @@ const SearchPage = () => {
             .then(response => response.json())
             .then(data => {
                 let channel = data["channel"];
-                let items = channel["item"];
-                setWords(items);
+
+                if (channel["total"] === "0") {
+                    setError("No results found");
+                } else {
+                    let items = channel["item"];
+
+                    setError("");
+                    setWords(items);
+                }
             });
     }
 
@@ -59,12 +67,15 @@ const SearchPage = () => {
                     </button>
                 </div>
 
-                <div
-                    className={"w-5/6 px-5 pb-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 overflow-auto"}>
-                    {words.map((word, index) => {
-                        return <Word key={word['target_code']} word={word} index={index}/>
-                    })}
-                </div>
+                {error !== "" ?
+                    (<h3 className={"text-2xl font-semibold underline underline-offset-2 text-center mt-5"}>{error}</h3>)
+                    :
+                    (<div className={"w-5/6 px-5 pb-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 overflow-auto"}>
+                        {words.map((word, index) => {
+                            return <Word key={word['target_code']} word={word} index={index}/>
+                        })}
+                    </div>)
+                }
             </main>
             <VirtualKeyboard search={search} updateSearch={updateSearch}/>
         </section>
