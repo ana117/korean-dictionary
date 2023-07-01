@@ -21,6 +21,10 @@ const SearchPage = () => {
         setSearch(assembled);
     }
 
+    const handleEnterKey = async () => {
+        await fetchWords();
+    }
+
     const handleInputChange = (event) => {
         updateSearch(event.target.value);
     }
@@ -80,16 +84,23 @@ const SearchPage = () => {
         setShowKeyboard(!showKeyboard);
     }
 
+    const handleKeyDown = async (event) => {
+        if (event.key === "Enter") {
+            await fetchWords();
+        }
+    }
+
     return (
         <section className={"h-screen flex flex-col"}>
             <Navbar/>
             <main className={"flex flex-col justify-center items-center m-10 max-h-full overflow-auto"}>
                 <div className={"w-full flex items-center relative"}>
                     <div className={"w-full lg:w-5/6 flex justify-end items-center"}>
-                        <img src={keyboardSVG} alt={"keyboard"} className={"absolute h-4/6 cursor-pointer mr-8 hidden md:block"}
+                        <img src={keyboardSVG} alt={"keyboard"}
+                             className={"absolute h-4/6 cursor-pointer mr-8 hidden md:block"}
                              onClick={handleShowKeyboard}/>
                         <input id={"search-bar"} type={"text"} placeholder={"Type Korean Word"}
-                               onChange={handleInputChange} value={search}
+                               onChange={handleInputChange} value={search} onKeyDown={handleKeyDown}
                                className={"w-full py-2 ps-5 pe-20 rounded-2xl rounded-e-none text-lg border-black border-2 focus:outline-0"}/>
                     </div>
                     <button type={"button"} onClick={fetchWords}
@@ -119,7 +130,8 @@ const SearchPage = () => {
 
             <div className={"flex justify-center w-full"}>
                 <div className={"w-full max-w-5xl hidden md:block"}>
-                    {showKeyboard && <VirtualKeyboard search={search} updateSearch={updateSearch}/>}
+                    {showKeyboard &&
+                        <VirtualKeyboard search={search} updateSearch={updateSearch} enterKey={handleEnterKey}/>}
                 </div>
             </div>
         </section>

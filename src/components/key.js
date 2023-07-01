@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Key = ({symbol, withMargin, search, updateSearch, toggleShift, toggleCapslock}) => {
+const Key = ({symbol, withMargin, search, updateSearch, toggleShift, toggleCapslock, enterKey}) => {
     const handleClick = () => {
         let newSearch = search;
         switch (symbol) {
@@ -9,7 +9,6 @@ const Key = ({symbol, withMargin, search, updateSearch, toggleShift, toggleCapsl
                 break;
 
             case "Tab":
-            case "Enter":
             case "LCtrl":
             case "RCtrl":
                 break;
@@ -20,6 +19,10 @@ const Key = ({symbol, withMargin, search, updateSearch, toggleShift, toggleCapsl
             case "LShift":
             case "RShift":
                 toggleShift();
+                break;
+
+            case "Enter":
+                enterKey();
                 break;
 
             case "Space":

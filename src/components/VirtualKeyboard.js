@@ -1,7 +1,7 @@
 import Key from "./key";
 import {useState} from "react";
 
-const VirtualKeyboard = ({search, updateSearch}) => {
+const VirtualKeyboard = ({search, updateSearch, enterKey}) => {
     const [shift, setShift] = useState(false);
     const [capsLock, setCapsLock] = useState(false);
 
@@ -48,7 +48,7 @@ const VirtualKeyboard = ({search, updateSearch}) => {
                                         return (
                                             <Key key={keys[i][j]} symbol={key} withMargin={j !== 0} search={search}
                                                  updateSearch={handleUpdateSearch} toggleShift={toggleShift}
-                                                 toggleCapslock={toggleCapsLock}/>
+                                                 toggleCapslock={toggleCapsLock} enterKey={enterKey}/>
                                         );
                                     })}
                                 </div>
@@ -73,7 +73,7 @@ const VirtualKeyboard = ({search, updateSearch}) => {
                                         return (
                                             <Key key={keys[i][j]} symbol={key} withMargin={j !== 0} search={search}
                                                  updateSearch={handleUpdateSearch} toggleShift={toggleShift}
-                                                 toggleCapslock={toggleCapsLock}/>
+                                                 toggleCapslock={toggleCapsLock} enterKey={enterKey}/>
                                         );
                                     })}
                                 </div>
@@ -97,7 +97,7 @@ const VirtualKeyboard = ({search, updateSearch}) => {
                                     return (
                                         <Key key={keys[i][j]} symbol={key} withMargin={j !== 0} search={search}
                                              updateSearch={handleUpdateSearch} toggleShift={toggleShift}
-                                             toggleCapslock={toggleCapsLock}/>
+                                             toggleCapslock={toggleCapsLock} enterKey={enterKey}/>
                                     );
                                 })}
                             </div>
