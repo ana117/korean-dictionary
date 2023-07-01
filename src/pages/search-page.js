@@ -84,7 +84,7 @@ const SearchPage = () => {
                         <img src={keyboardSVG} alt={"keyboard"} className={"absolute h-4/6 cursor-pointer mr-8 hidden md:block"}
                              onClick={handleShowKeyboard}/>
                         <input id={"search-bar"} type={"text"} placeholder={"Type Korean Word"}
-                               onChange={handleInputChange}
+                               onChange={handleInputChange} value={search}
                                className={"w-full py-2 ps-5 pe-20 rounded-2xl rounded-e-none text-lg border-black border-2 focus:outline-0"}/>
                     </div>
                     <button type={"button"} onClick={fetchWords}
