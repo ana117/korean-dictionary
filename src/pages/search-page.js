@@ -31,6 +31,11 @@ const SearchPage = () => {
             return;
         }
 
+        let api_url = process.env.REACT_APP_API_URL;
+        if (!Hangul.isCompleteAll(search)) {
+            api_url += "/eng"
+        }
+
         const params = {
             key: process.env.REACT_APP_API_KEY,
             q: search,
@@ -40,7 +45,7 @@ const SearchPage = () => {
             trans_lang: "1",
         };
 
-        const url = new URL(process.env.REACT_APP_API_URL);
+        const url = new URL(api_url);
         url.search = new URLSearchParams(params).toString();
 
         setWords([]);
