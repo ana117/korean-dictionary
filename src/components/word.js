@@ -12,6 +12,7 @@ const Word = ({word, index}) => {
     const code = word["target_code"];
     const name = word["word"];
     const meanings = [];
+    const maxMeaning = 3;
 
     const sense = word["sense"];
     if (Array.isArray(sense)) {
@@ -52,7 +53,7 @@ const Word = ({word, index}) => {
                 <div>
                     <h1 className={"text-3xl font-bold"}>{name}</h1>
                     <ul>
-                        {meanings.map((meaning) => {
+                        {meanings.slice(0, maxMeaning).map((meaning) => {
                             return <li key={meaning.id}>{meaning.translation}</li>
                         })}
                     </ul>
