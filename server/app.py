@@ -3,7 +3,8 @@ from dotenv import load_dotenv
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 import requests
-import xmltodict
+
+from krdict_scraper import eng_to_kor, kor_to_eng
 
 load_dotenv()
 
@@ -21,7 +22,6 @@ def hello_world():
 @app.route('/krdict')
 @cross_origin()
 def krdict():
-    base_url = 'https://krdict.korean.go.kr/api/search'
     request_params = request.args
 
     params = dict()
@@ -29,8 +29,19 @@ def krdict():
         params[key] = request_params[key]
     params['key'] = os.getenv('KRDICT_KEY')
 
-    response = requests.get(base_url, params=params, verify=_CERT_PATH)
+    return kor_to_eng(params)
+
+
+@app.route('/krdict/eng')
+@cross_origin()
+def krdict_eng():
+    request_params = request.args
+
+    word = request_params['q']
+    channel = eng_to_kor(word)
+
+    return {'channel': channel}
     
-    return xmltodict.parse(response.content)
+
     
     
