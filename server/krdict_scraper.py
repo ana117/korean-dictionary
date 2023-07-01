@@ -39,7 +39,9 @@ def parse_search_results(soup):
         raw_translations = raw_item.find_all('dd', class_='manyLang6')
         for i in range(0, len(raw_translations), 2):
             word_translation = clean_word(raw_translations[i].get_text())
-            word_translation = " ".join(word_translation.split()[1:])
+
+            if any(char.isdigit() for char in word_translation):
+                word_translation = " ".join(word_translation.split()[1:])
 
             definition_translation = clean_word(raw_translations[i+1].get_text())
             translations.append({
