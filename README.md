@@ -3,16 +3,17 @@ ReactJS web app using [Korean Dictionary API](https://krdict.korean.go.kr/openAp
 
 
 ## Features
-- Searching with Korean letter will return Korean word that matches the search query
-- Searching with English letter will return Korean word meaning that matches the search query
+- Korean to English
+- English to Korean
+- Virtual Korean keyboard
 
 
 ## Demo
 [Github Page](https://ana117.github.io/korean-dictionary/)
 
 <p align="middle">
-   <img src="../assets/demo-feature-1.png" alt="Feature 1" width="45%"/> 
-   <img src="../assets/demo-feature-2.png" alt="Feature 2" width="45%"/> 
+   <img src="../assets/kor2eng.png" alt="Feature 1" width="45%"/> 
+   <img src="../assets/eng2kor.png" alt="Feature 2" width="45%"/> 
 </p>
 
 
@@ -39,6 +40,7 @@ REACT_APP_API_KEY=<your_api_key>
 
 ## Limitations
 - The API key is limited to 50.000 requests per day
+- English to Korean functionality uses HTML web scraper. The result may not be accurate and may break
 - Proxy server for the demo page is hosted on PythonAnywhere and may be unavailable at times
 
 ## License
