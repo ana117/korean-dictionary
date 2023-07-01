@@ -2,7 +2,6 @@ import os
 from dotenv import load_dotenv
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
-import requests
 
 from krdict_scraper import eng_to_kor, kor_to_eng
 
