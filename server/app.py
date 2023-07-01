@@ -41,7 +41,3 @@ def krdict_eng():
     channel = eng_to_kor(word)
 
     return {'channel': channel}
-    
-
-    
-    
