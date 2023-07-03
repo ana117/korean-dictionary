@@ -1,19 +1,45 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Navbar from "../components/navbar";
 import Word from "../components/word";
 
 import keyboardSVG from "../assets/keyboard.svg";
 import loadingSVG from "../assets/loading.svg";
 import VirtualKeyboard from "../components/VirtualKeyboard";
+import ServerStatus from "../components/serverStatus";
 
 const SearchPage = () => {
     const [words, setWords] = useState([]);
     const [search, setSearch] = useState("");
     const [error, setError] = useState("");
+    const [serverOnline, setServerOnline] = useState(false);
     const [showKeyboard, setShowKeyboard] = useState(false);
     const [showLoading, setShowLoading] = useState(false);
 
     const Hangul = require('hangul-js');
+
+    useEffect(() => {
+        pingServer();
+    });
+
+    let pingCount = 0;
+    const maxPingCount = 5;
+    const pingServer = () => {
+        fetch(process.env.REACT_APP_API_URL + '/ping')
+            .then(response => response.json())
+            .then(data => {
+                if (data["message"] === "pong") {
+                    setServerOnline(true);
+                    pingCount = 0;
+                }
+            })
+            .catch(() => {
+                setServerOnline(false);
+                if (pingCount < maxPingCount) {
+                    pingCount++;
+                    setTimeout(pingServer, 2000);
+                }
+            });
+    }
 
     const updateSearch = (newSearch) => {
         let disassembled = Hangul.disassemble(newSearch);
@@ -93,9 +119,12 @@ const SearchPage = () => {
     return (
         <section className={"h-screen flex flex-col"}>
             <Navbar/>
+
             <main className={"flex flex-col justify-center items-center m-10 max-h-full overflow-auto"}>
                 <div className={"w-full flex items-center relative"}>
                     <div className={"w-full lg:w-5/6 flex justify-end items-center"}>
+                        <ServerStatus serverOnline={serverOnline} pingServer={pingServer}/>
+
                         <img src={keyboardSVG} alt={"keyboard"}
                              className={"absolute h-4/6 cursor-pointer mr-8 hidden md:block"}
                              onClick={handleShowKeyboard}/>
@@ -103,6 +132,7 @@ const SearchPage = () => {
                                onChange={handleInputChange} value={search} onKeyDown={handleKeyDown}
                                className={"w-full py-2 ps-5 pe-20 rounded-2xl rounded-e-none text-lg border-black border-2 focus:outline-0"}/>
                     </div>
+
                     <button type={"button"} onClick={fetchWords}
                             className={"w-2/6 lg:w-1/6 ease-in duration-500 py-2 px-5 rounded-2xl rounded-s-none bg-black text-white text-lg font-bold border-black border-2"}>Search
                     </button>
@@ -117,14 +147,19 @@ const SearchPage = () => {
 
                 {error !== "" ?
                     (
-                        <h3 className={"text-2xl font-semibold text-secondary underline underline-offset-2 text-center mt-5"}>{error}</h3>)
+                        <h3 className={"text-2xl font-semibold text-secondary underline underline-offset-2 text-center mt-5"}>
+                            {error}
+                        </h3>
+                    )
                     :
-                    (<div
-                        className={"w-5/6 px-5 pb-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 overflow-auto"}>
-                        {words.map((word, index) => {
-                            return <Word key={word['target_code']} word={word} index={index}/>
-                        })}
-                    </div>)
+                    (
+                        <div
+                            className={"w-5/6 px-5 pb-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 overflow-auto"}>
+                            {words.map((word, index) => {
+                                return <Word key={word['target_code']} word={word} index={index}/>
+                            })}
+                        </div>
+                    )
                 }
             </main>
 
