@@ -36,7 +36,7 @@ const SearchPage = () => {
                 setServerOnline(false);
                 if (pingCount < maxPingCount) {
                     pingCount++;
-                    setTimeout(pingServer, 2000);
+                    setTimeout(pingServer, 5000);
                 }
             });
     }
