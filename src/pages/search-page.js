@@ -4,7 +4,7 @@ import Word from "../components/word";
 
 import keyboardSVG from "../assets/keyboard.svg";
 import loadingSVG from "../assets/loading.svg";
-import VirtualKeyboard from "../components/VirtualKeyboard";
+import VirtualKeyboard from "../components/virtual-keyboard";
 import ServerStatus from "../components/serverStatus";
 
 const SearchPage = () => {

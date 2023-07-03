@@ -35,61 +35,14 @@ const VirtualKeyboard = ({search, updateSearch, enterKey}) => {
         ["LCtrl", "Space", "RCtrl"]
     ];
 
-    if (capsLock) {
-        return (
-            <div className="w-full">
-                <div className={"m-5"}>
-                    <div className={"grid grid-rows-5"}>
-                        {altKeys.map((row, i) => {
-                            return (
-                                <div key={keys[i][0] + keys[i][1]}
-                                     className={`flex w-full ${i === 0 ? '' : 'mt-1'}`}>
-                                    {row.map((key, j) => {
-                                        return (
-                                            <Key key={keys[i][j]} symbol={key} withMargin={j !== 0} search={search}
-                                                 updateSearch={handleUpdateSearch} toggleShift={toggleShift}
-                                                 toggleCapslock={toggleCapsLock} enterKey={enterKey}/>
-                                        );
-                                    })}
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
-    if (shift) {
-        return (
-            <div className="w-full">
-                <div className={"m-5"}>
-                    <div className={"grid grid-rows-5"}>
-                        {altKeys.map((row, i) => {
-                            return (
-                                <div key={keys[i][0] + keys[i][1]}
-                                     className={`flex w-full ${i === 0 ? '' : 'mt-1'}`}>
-                                    {row.map((key, j) => {
-                                        return (
-                                            <Key key={keys[i][j]} symbol={key} withMargin={j !== 0} search={search}
-                                                 updateSearch={handleUpdateSearch} toggleShift={toggleShift}
-                                                 toggleCapslock={toggleCapsLock} enterKey={enterKey}/>
-                                        );
-                                    })}
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            </div>
-        )
-    }
+    let layout = (shift || capsLock) ? altKeys : keys;
 
     return (
         <div className="w-full">
-            <div className={"m-5"}>
+            <div className={"mb-5 mx-5"}>
                 <div className={"grid grid-rows-5"}>
-                    {keys.map((row, i) => {
+                    {
+                        layout.map((row, i) => {
                         return (
                             <div key={keys[i][0] + keys[i][1]}
                                  className={`flex w-full ${i === 0 ? '' : 'mt-1'}`}>
