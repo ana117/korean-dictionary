@@ -5,7 +5,7 @@ import re
 import xmltodict
 
 
-_CERT_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'kr.pem')
+_CERT_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'krdict.pem')
 _BASE_SEARCH_URL = 'https://krdict.korean.go.kr/eng/dicSearch/search?nation=eng&nationCode=6&sort=C&mainSearchWord='
 _BASE_API_URL = 'https://krdict.korean.go.kr/api/search'
 
