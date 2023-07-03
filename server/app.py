@@ -40,3 +40,9 @@ def krdict_eng():
     channel = eng_to_kor(word)
 
     return {'channel': channel}
+
+
+@app.route('/krdict/ping')
+@cross_origin()
+def ping():
+    return {'message': 'pong'}
