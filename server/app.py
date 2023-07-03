@@ -11,8 +11,6 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-_CERT_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'kr.pem')
-
 @app.route('/')
 def hello_world():
     return 'Hello from Flask!'
