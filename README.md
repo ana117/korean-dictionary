@@ -42,6 +42,7 @@ REACT_APP_API_KEY=<your_api_key>
 - The API key is limited to 50.000 requests per day
 - English to Korean functionality uses HTML web scraper. The result may not be accurate and may break
 - Proxy server for the demo page is hosted on PythonAnywhere and may be unavailable at times
+- Proxy server for the demo page goes to sleep after inactivity. If an error occurred, try again after a few seconds
 
 ## License
 [MIT](LICENSE)
