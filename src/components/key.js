@@ -1,28 +1,39 @@
 import React from 'react';
 
-const Key = ({symbol, withMargin, search, updateSearch, toggleShift, toggleCapslock, enterKey}) => {
+const Key = ({data, keyboardState, handler}) => {
+    const {symbol, altSymbol} = data;
+    const shift = keyboardState['shift'];
+    const capsLock = keyboardState['capsLock'];
+    const useAltKey = shift || capsLock;
+
     const handleClick = () => {
-        let newSearch = search;
+        let newSearch = keyboardState['search'];
         switch (symbol) {
             case "Backspace":
+            case "⌫":
                 newSearch = newSearch.slice(0, -1);
                 break;
 
             case "Tab":
             case "LCtrl":
             case "RCtrl":
+            case "​":
                 break;
 
             case "Caps Lock":
-                toggleCapslock();
+            case "⛭":
+                handler['toggleCapsLock']();
                 break;
+
             case "LShift":
             case "RShift":
-                toggleShift();
+            case "⇧":
+                handler['toggleShift']();
                 break;
 
             case "Enter":
-                enterKey();
+            case "⚲":
+                handler['enterKey']();
                 break;
 
             case "Space":
@@ -30,15 +41,15 @@ const Key = ({symbol, withMargin, search, updateSearch, toggleShift, toggleCapsl
                 break;
 
             default:
-                newSearch += symbol;
+                newSearch += useAltKey ? altSymbol : symbol;
                 break;
         }
 
-        updateSearch(newSearch);
+        handler['handleUpdateSearch'](newSearch);
     }
 
-    let customClass = "";
-
+    let customTextClass = data['customTextClass'] + " ";
+    let customClass = data['customClass'] + " ";
     switch (symbol) {
         case "Backspace":
         case "Tab":
@@ -59,21 +70,24 @@ const Key = ({symbol, withMargin, search, updateSearch, toggleShift, toggleCapsl
             customClass += "basis-7/12";
             break;
 
+        case "⇧":
+        case "⌫":
+            customClass += "basis-2/12";
+            break;
+
         default:
             customClass += "basis-1/12";
             break;
     }
 
-    if (withMargin) {
-        customClass += " ms-1";
-    }
-
     return (
-        <button
-            className={`border-black border-2 flex-auto py-2 text-lg font-semibold hover:bg-slate-100 ${customClass}`}
+        <div
+            className={`border-black border-2 flex-auto py-2 cursor-pointer hover:bg-slate-100 m-[0.1rem] md:m-1 ${customClass}`}
             onClick={handleClick}>
-            {symbol}
-        </button>
+            <p className={`text-lg font-semibold ${customTextClass}`}>
+                {useAltKey ? altSymbol : symbol}
+            </p>
+        </div>
     );
 }
 
