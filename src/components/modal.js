@@ -13,7 +13,7 @@ const Modal = ({title, content, setShow}) => {
                             <div className={"text-4xl font-bold text-center"}>
                                 {title}
                             </div>
-                            <div className={"w-full my-3 border-y-2 max-h-[50vh] overflow-y-auto"}>
+                            <div className={"w-full my-3 pe-5 border-y-2 max-h-[50vh] overflow-y-auto"}>
                                 <div className={"overflow-y-auto"}>
                                     {content}
                                 </div>

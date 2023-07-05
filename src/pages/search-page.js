@@ -117,58 +117,61 @@ const SearchPage = () => {
     }
 
     return (
-        <section className={"h-screen flex flex-col"}>
+        <section className={"h-screen flex flex-col bg-slate-50"}>
             <Navbar/>
 
-            <main className={"flex flex-col justify-center items-center m-10 max-h-full overflow-auto"}>
-                <div className={"w-full flex items-center relative"}>
+            <main
+                className={"flex flex-col justify-center items-center px-2 md:px-10 pt-5 md:pt-10 pb-1 h-full max-h-full overflow-y-auto"}>
+                <div className={"w-full flex items-center relative grow-0 px-2"}>
                     <div className={"w-full lg:w-5/6 flex justify-end items-center"}>
                         <ServerStatus serverOnline={serverOnline} pingServer={pingServer}/>
 
                         <img src={keyboardSVG} alt={"keyboard"}
-                             className={"absolute h-4/6 cursor-pointer mr-8 hidden md:block"}
+                             className={"absolute h-3/6 md:h-4/6 cursor-pointer mr-4 md:mr-8"}
                              onClick={handleShowKeyboard}/>
-                        <input id={"search-bar"} type={"text"} placeholder={"Type Korean Word"}
+                        <input id={"search-bar"} type={"text"} placeholder={"Type here"}
                                onChange={handleInputChange} value={search} onKeyDown={handleKeyDown}
                                className={"w-full py-2 ps-5 pe-20 rounded-2xl rounded-e-none text-lg border-black border-2 focus:outline-0"}/>
                     </div>
 
                     <button type={"button"} onClick={fetchWords}
-                            className={"w-2/6 lg:w-1/6 ease-in duration-500 py-2 px-5 rounded-2xl rounded-s-none bg-black text-white text-lg font-bold border-black border-2"}>Search
+                            className={"w-2/6 lg:w-1/6 ease-in duration-500 py-2 px-2 md:px-5 rounded-2xl rounded-s-none bg-black text-white text-lg font-bold border-black border-2"}>Search
                     </button>
                 </div>
 
-                {showLoading &&
-                    <h3 className={"text-2xl flex items-center font-semibold text-center mt-5"}>
-                        <img src={loadingSVG} alt={"loading"} className={"h-10 animate-spin-slow"}/>
-                        <p>Loading</p>
-                    </h3>
-                }
-
-                {error !== "" ?
-                    (
-                        <h3 className={"text-2xl font-semibold text-secondary underline underline-offset-2 text-center mt-5"}>
-                            {error}
+                <div className={"flex flex-col justify-center items-center overflow-y-auto w-full grow"}>
+                    {showLoading &&
+                        <h3 className={"text-2xl flex items-center font-semibold text-center mt-5"}>
+                            <img src={loadingSVG} alt={"loading"} className={"h-10 animate-spin-slow"}/>
+                            <p>Loading</p>
                         </h3>
-                    )
-                    :
-                    (
-                        <div
-                            className={"w-5/6 px-5 pb-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 overflow-auto"}>
-                            {words.map((word, index) => {
-                                return <Word key={word['target_code']} word={word} index={index}/>
-                            })}
-                        </div>
-                    )
-                }
-            </main>
+                    }
 
-            <div className={"flex justify-center w-full"}>
-                <div className={"w-full max-w-5xl hidden md:block"}>
-                    {showKeyboard &&
-                        <VirtualKeyboard search={search} updateSearch={updateSearch} enterKey={handleEnterKey}/>}
+                    {error !== "" ?
+                        (
+                            <h3 className={"text-2xl font-semibold text-secondary underline underline-offset-2 text-center mt-5"}>
+                                {error}
+                            </h3>
+                        )
+                        :
+                        (
+                            <div
+                                className={"w-5/6 px-5 pb-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 overflow-auto"}>
+                                {words.map((word, index) => {
+                                    return <Word key={word['target_code']} word={word} index={index}/>
+                                })}
+                            </div>
+                        )
+                    }
                 </div>
-            </div>
+
+                <div className={"flex justify-center w-full grow-0 py-2"}>
+                    <div className={"w-full max-w-5xl bg-white rounded-lg"}>
+                        {showKeyboard &&
+                            <VirtualKeyboard search={search} updateSearch={updateSearch} enterKey={handleEnterKey}/>}
+                    </div>
+                </div>
+            </main>
         </section>
     );
 }
