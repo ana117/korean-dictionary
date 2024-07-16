@@ -1,12 +1,10 @@
-import os
 import requests
 from bs4 import BeautifulSoup
 import re
 import xmltodict
 
 
-_CERT_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'krdict.pem')
-_BASE_SEARCH_URL = 'https://krdict.korean.go.kr/eng/dicSearch/search?nation=eng&nationCode=6&sort=C&mainSearchWord='
+_BASE_SEARCH_URL = 'https://krdict.korean.go.kr/eng/dicMarinerSearch/search?nation=eng&nationCode=6&sort=C&mainSearchWord='
 _BASE_API_URL = 'https://krdict.korean.go.kr/api/search'
 
 
@@ -15,8 +13,8 @@ def clean_word(word):
     return word
 
 
-def fetch_html(url, cert_path=_CERT_PATH):
-    page = requests.get(url, verify=cert_path)
+def fetch_html(url):
+    page = requests.get(url)
     return BeautifulSoup(page.content, 'html.parser')
 
 
@@ -71,5 +69,5 @@ def eng_to_kor(word):
 
 
 def kor_to_eng(params):
-    response = requests.get(_BASE_API_URL, params=params, verify=_CERT_PATH)
+    response = requests.get(_BASE_API_URL, params=params)
     return xmltodict.parse(response.content)
