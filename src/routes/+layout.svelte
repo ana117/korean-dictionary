@@ -4,7 +4,7 @@
 	let { children } = $props();
 </script>
 
-<div class="h-screen flex flex-col">
+<div class="flex h-screen flex-col">
 	<Navbar />
 	{@render children()}
 </div>

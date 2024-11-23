@@ -1,10 +1,10 @@
 type KoreanTranslation = {
-  text: string;
-  definition: string;
-}
+	text: string;
+	definition: string;
+};
 
 type KoreanWord = {
-  code: string;
-  koreanWord: string;
-  translations: KoreanTranslation[];
-}
+	code: string;
+	koreanWord: string;
+	translations: KoreanTranslation[];
+};
