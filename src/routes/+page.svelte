@@ -110,10 +110,14 @@ import SearchBar from "$lib/components/SearchBar.svelte";
   ];
 </script>
 
-<SearchBar />
-
-<div class="grow mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-16">
-  {#each mockResult as word, i}
-  <ResultCard {word} isFirst={i === 0} />
-  {/each}
-</div>
+<main class="flex flex-col p-8 w-full lg:w-5/6 xl:w-2/3 h-full max-h-full mx-auto overflow-y-auto">
+  <SearchBar />
+  
+  <div class="grow mt-8 px-6 overflow-y-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-16 content-start">
+      {#each mockResult as word, i}
+      <ResultCard {word} isFirst={i === 0} />
+      {/each}
+    </div>
+  </div>
+</main>

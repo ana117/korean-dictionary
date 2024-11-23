@@ -19,4 +19,8 @@
     --secondary: 29 61 104;
     --accent: 39 91 160;
   }
+
+  * {
+    transition-duration: 500ms;
+  }
 }

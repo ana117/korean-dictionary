@@ -4,9 +4,7 @@
 	let { children } = $props();
 </script>
 
-<div class="h-screen max-h-screen overflow-y-auto overflow-x-visible">
+<div class="h-screen flex flex-col">
 	<Navbar />
-	<main class="p-16 py-8">
-		{@render children()}
-	</main>
+	{@render children()}
 </div>

@@ -5,9 +5,10 @@
   let dialog: HTMLDialogElement;
 
   const externalLink = `https://krdict.korean.go.kr/eng/dicSearch/SearchView?nation=eng&nationCode=6&ParaWordNo=${word.code}`;
+  const firstElementClass = isFirst ? "lg:col-span-3 md:col-span-2 sticky top-0 z-10" : "";
 </script>
 
-<button class="bg-accent opacity-75 hover:opacity-100 p-5 rounded-md shadow-xl hover:scale-105 duration-500" class:lg:col-span-3={isFirst} class:md:col-span-2={isFirst} on:click={() => dialog.showModal()}>
+<button class="bg-accent p-5 rounded-md shadow-lg hover:scale-105 {firstElementClass}" on:click={() => dialog.showModal()} >
   <p class="text-3xl fonr-bold text-text">
     {word.koreanWord}
   </p>
@@ -26,7 +27,7 @@
       <h2 class="text-3xl font-bold">
         {word.koreanWord}
       </h2>
-      <svg viewBox="0 0 24 24" class="absolute -right-6 top-0 w-4 h-4 group-hover:scale-110 duration-500">
+      <svg viewBox="0 0 24 24" class="absolute -right-6 top-0 w-4 h-4 group-hover:scale-110">
         <path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path>
         <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path>
       </svg>
