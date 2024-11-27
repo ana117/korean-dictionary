@@ -7,7 +7,7 @@
 	import VirtualKeyboard from '$lib/components/keyboard/VirtualKeyboard.svelte';
 	import type { KoreanWord } from '$lib/types';
 
-	let words = $state<KoreanWord[]>([]);
+	let words = $state<KoreanWord[] | null>(null);
 	let isLoading = $state(false);
 	let error = $state('');
 
@@ -82,7 +82,7 @@
 					>
 				</p>
 			</div>
-		{:else if words.length}
+		{:else if words?.length}
 			<div
 				class="grid grid-cols-1 content-start gap-x-4 gap-y-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-8"
 			>
@@ -90,7 +90,7 @@
 					<ResultCard {word} isFirst={i === 0} />
 				{/each}
 			</div>
-		{:else}
+		{:else if words?.length === 0}
 			<div
 				class="flex flex-col items-center justify-center gap-4 text-center text-2xl font-semibold"
 			>
