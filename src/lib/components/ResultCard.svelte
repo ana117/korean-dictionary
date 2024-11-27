@@ -27,20 +27,23 @@
 </button>
 
 <dialog bind:this={dialog} class="w-5/6 rounded-md bg-background px-8 py-5 md:w-1/2">
-	<div class="flex flex-col items-center gap-4">
-		<a href={externalLink} target="_blank" rel="noopener noreferrer" class="group relative">
-			<h2 class="text-3xl font-bold">
-				{word.koreanWord}
-			</h2>
-			<svg viewBox="0 0 24 24" class="absolute -right-6 top-0 h-4 w-4 group-hover:scale-110">
-				<path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path>
-				<path
-					d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
-				></path>
-			</svg>
-		</a>
+	<div class="flex flex-col items-center  h-full">
+		
+		<div class="sticky top-0 bg-background w-full h-16 flex justify-center border-b-2 border-foreground/25">
+			<a href={externalLink} target="_blank" rel="noopener noreferrer" class="group relative">
+				<h2 class="text-3xl font-bold">
+					{word.koreanWord}
+				</h2>
+				<svg viewBox="0 0 24 24" class="absolute -right-6 top-0 h-4 w-4 group-hover:scale-110">
+					<path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path>
+					<path
+						d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+					></path>
+				</svg>
+			</a>
+		</div>
 
-		<div class="w-full border-y-2 border-foreground/25 py-6">
+		<div class="w-full py-4 overflow-y-auto">
 			<ul>
 				{#each word.translations as translation, i}
 					<li class="mb-4 text-xl">
@@ -52,11 +55,14 @@
 			</ul>
 		</div>
 
-		<button
-			on:click={() => dialog.close()}
-			class="text-xl font-bold underline-offset-4 hover:underline"
-		>
-			Close
-		</button>
+		<div class="sticky bottom-0 bg-background w-full h-16 flex justify-center border-t-2 border-foreground/25">
+			<button
+				on:click={() => dialog.close()}
+				class="text-xl font-bold underline-offset-4 hover:underline"
+			>
+				Close
+			</button>
+		</div>
+
 	</div>
 </dialog>

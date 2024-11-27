@@ -1,11 +1,11 @@
 <nav class="flex min-h-20 w-full items-center justify-between bg-primary px-8">
-	<img src="/favicon.png" alt="Korean Dictionary" class="h-12 w-12" />
+	<img src="/favicon.png" alt="Korean Dictionary" class="h-8 w-8 md:h-12 md:w-12" />
 
-	<p class="text-3xl font-bold text-background">Korean Dictionary</p>
+	<p class="text-xl md:text-3xl font-bold text-background">Korean Dictionary</p>
 
 	<a
 		href="https://github.com/ana117/korean-dictionary/"
-		class="group h-12 w-12 rounded-full hover:bg-background"
+		class="group h-8 w-8 md:h-12 md:w-12 rounded-full hover:bg-background"
 	>
 		<span class="sr-only">GitHub</span>
 		<svg
