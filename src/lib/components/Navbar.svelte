@@ -1,4 +1,4 @@
-<nav class="flex h-20 w-full items-center justify-between bg-primary px-8">
+<nav class="flex min-h-20 w-full items-center justify-between bg-primary px-8">
 	<img src="/favicon.png" alt="Korean Dictionary" class="h-12 w-12" />
 
 	<p class="text-3xl font-bold text-background">Korean Dictionary</p>

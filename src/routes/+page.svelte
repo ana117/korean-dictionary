@@ -1,6 +1,30 @@
 <script lang="ts">
+	import { setContext } from 'svelte';
+	import * as hangul from 'hangul-js';
+
 	import ResultCard from '$lib/components/ResultCard.svelte';
 	import SearchBar from '$lib/components/SearchBar.svelte';
+	import VirtualKeyboard from '$lib/components/keyboard/VirtualKeyboard.svelte';
+	import type { KoreanWord } from '$lib/types';
+
+	let showKeyboard = $state(false);
+	let searchQuery = $state('');
+	setContext('searchQuery', {
+		get searchQuery(): string {
+			return searchQuery;
+		},
+		set searchQuery(value: string) {
+			searchQuery = value;
+		}
+	});
+
+	$effect(() => {
+		searchQuery = hangul.assemble(searchQuery.split(''));
+	});
+
+	const handleSearch = () => {
+		if (searchQuery) console.log('Search query:', searchQuery);
+	};
 
 	const mockResult: KoreanWord[] = [
 		{
@@ -110,8 +134,10 @@
 	];
 </script>
 
-<main class="mx-auto flex h-full max-h-full w-full flex-col overflow-y-auto p-8 lg:w-5/6 xl:w-2/3">
-	<SearchBar />
+<main
+	class="mx-auto flex h-full max-h-full w-full flex-col overflow-y-auto p-8 pb-4 lg:w-5/6 xl:w-2/3"
+>
+	<SearchBar handleShowKeyboard={() => (showKeyboard = !showKeyboard)} {handleSearch} />
 
 	<div class="mt-8 grow overflow-y-auto px-6">
 		<div
@@ -123,3 +149,9 @@
 		</div>
 	</div>
 </main>
+
+{#if showKeyboard}
+	<div class="mx-auto w-full max-w-5xl py-2">
+		<VirtualKeyboard handleEnter={handleSearch} />
+	</div>
+{/if}
