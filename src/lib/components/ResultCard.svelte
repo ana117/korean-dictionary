@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { KoreanWord } from '$lib/types';
+
 	export let word: KoreanWord;
 	export let isFirst: boolean;
 

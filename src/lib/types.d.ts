@@ -1,9 +1,9 @@
-type KoreanTranslation = {
+export type KoreanTranslation = {
 	text: string;
 	definition: string;
 };
 
-type KoreanWord = {
+export type KoreanWord = {
 	code: string;
 	koreanWord: string;
 	translations: KoreanTranslation[];
