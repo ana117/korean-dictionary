@@ -30,11 +30,14 @@
 	<div class="flex flex-col items-center  h-full">
 		
 		<div class="sticky top-0 bg-background w-full h-16 flex justify-center border-b-2 border-foreground/25">
+			<h2 class="text-3xl font-bold">
+				{word.koreanWord}
+			</h2>
 			<a href={externalLink} target="_blank" rel="noopener noreferrer" class="group relative">
-				<h2 class="text-3xl font-bold">
-					{word.koreanWord}
-				</h2>
-				<svg viewBox="0 0 24 24" class="absolute -right-6 top-0 h-4 w-4 group-hover:scale-110">
+				<span class="sr-only">
+					Extrenal link to the Korean Dictionary
+				</span>
+				<svg viewBox="0 0 24 24" class="absolute -right-6 top-0 h-5 w-5 group-hover:scale-110 group-hover:bg-primary group-hover:fill-background rounded-sm p-0.5">
 					<path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path>
 					<path
 						d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
