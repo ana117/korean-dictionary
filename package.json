@@ -33,6 +33,7 @@
 	"dependencies": {
 		"@sveltejs/adapter-vercel": "^5.4.8",
 		"fast-xml-parser": "^4.5.0",
-		"hangul-js": "^0.2.6"
+		"hangul-js": "^0.2.6",
+		"linkedom": "^0.18.5"
 	}
 }
