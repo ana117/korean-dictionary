@@ -25,7 +25,6 @@ export async function POST({ request }) {
 		words = _parse_xml(xml);
 	} catch (e) {
 		console.error(e);
-		console.error(xml);
 		return json({ error: 'Internal Server Error' }, { status: 500 });
 	}
 	return json(words);
@@ -52,7 +51,7 @@ const _parse_xml = (xml: string): KoreanWord[] => {
 	}
 
 	const results: KoreanWord[] = [];
-	for (const item of channel.item) {
+	for (const item of items) {
 		const translations: KoreanTranslation[] = [];
 		let senses = item.sense;
 		if (!Array.isArray(senses)) {
