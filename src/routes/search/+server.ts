@@ -6,7 +6,8 @@ import { parseHTML } from 'linkedom';
 import { default as hangul } from 'hangul-js';
 
 const API_URL = 'https://krdict.korean.go.kr/api/search';
-const SCRAPE_URL = 'https://krdict.korean.go.kr/eng/dicMarinerSearch/search?nation=eng&nationCode=6&sort=C&mainSearchWord=';
+const SCRAPE_URL =
+	'https://krdict.korean.go.kr/eng/dicMarinerSearch/search?nation=eng&nationCode=6&sort=C&mainSearchWord=';
 
 export async function POST({ request }) {
 	const { word }: { word: string } = await request.json();
@@ -76,12 +77,11 @@ const _api = async (word: string): Promise<KoreanWord[]> => {
 	const response = await fetch(`${API_URL}?${params.toString()}`);
 	const xml = await response.text();
 	return _parseXML(xml);
-}
-
+};
 
 const _cleanWord = (word: string): string => {
-  return word.split(/\s+/).join(' ').trim();
-}
+	return word.split(/\s+/).join(' ').trim();
+};
 
 const _parseHTML = (html: string): KoreanWord[] => {
 	const { document } = parseHTML(html);
@@ -104,10 +104,12 @@ const _parseHTML = (html: string): KoreanWord[] => {
 				translation = translation.split(' ').slice(1).join(' ');
 			}
 
-			const definition = _cleanWord(rawTranslations[i + 2].textContent ?? '').replaceAll('"', '').trim();
+			const definition = _cleanWord(rawTranslations[i + 2].textContent ?? '')
+				.replaceAll('"', '')
+				.trim();
 
-			translations.push({ 
-				text: translation, 
+			translations.push({
+				text: translation,
 				definition
 			});
 		}
@@ -120,7 +122,7 @@ const _parseHTML = (html: string): KoreanWord[] => {
 	}
 
 	return results;
-}
+};
 
 const _scrape = async (word: string): Promise<KoreanWord[]> => {
 	const url = SCRAPE_URL + word;
@@ -131,4 +133,4 @@ const _scrape = async (word: string): Promise<KoreanWord[]> => {
 
 	const html = await response.text();
 	return _parseHTML(html);
-}
+};

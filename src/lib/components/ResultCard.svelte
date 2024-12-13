@@ -27,17 +27,19 @@
 </button>
 
 <dialog bind:this={dialog} class="w-5/6 rounded-md bg-background px-8 py-5 md:w-1/2">
-	<div class="flex flex-col items-center  h-full">
-		
-		<div class="sticky top-0 bg-background w-full h-16 flex justify-center border-b-2 border-foreground/25">
+	<div class="flex h-full flex-col items-center">
+		<div
+			class="sticky top-0 flex h-16 w-full justify-center border-b-2 border-foreground/25 bg-background"
+		>
 			<h2 class="text-3xl font-bold">
 				{word.koreanWord}
 			</h2>
 			<a href={externalLink} target="_blank" rel="noopener noreferrer" class="group relative">
-				<span class="sr-only">
-					Extrenal link to the Korean Dictionary
-				</span>
-				<svg viewBox="0 0 24 24" class="absolute -right-6 top-0 h-5 w-5 group-hover:scale-110 group-hover:bg-primary group-hover:fill-background rounded-sm p-0.5">
+				<span class="sr-only"> Extrenal link to the Korean Dictionary </span>
+				<svg
+					viewBox="0 0 24 24"
+					class="absolute -right-6 top-0 h-5 w-5 rounded-sm p-0.5 group-hover:scale-110 group-hover:bg-primary group-hover:fill-background"
+				>
 					<path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path>
 					<path
 						d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
@@ -46,7 +48,7 @@
 			</a>
 		</div>
 
-		<div class="w-full py-4 overflow-y-auto">
+		<div class="w-full overflow-y-auto py-4">
 			<ul>
 				{#each word.translations as translation, i}
 					<li class="mb-4 text-xl">
@@ -58,7 +60,9 @@
 			</ul>
 		</div>
 
-		<div class="sticky bottom-0 bg-background w-full h-16 flex justify-center border-t-2 border-foreground/25">
+		<div
+			class="sticky bottom-0 flex h-16 w-full justify-center border-t-2 border-foreground/25 bg-background"
+		>
 			<button
 				on:click={() => dialog.close()}
 				class="text-xl font-bold underline-offset-4 hover:underline"
@@ -66,6 +70,5 @@
 				Close
 			</button>
 		</div>
-
 	</div>
 </dialog>
