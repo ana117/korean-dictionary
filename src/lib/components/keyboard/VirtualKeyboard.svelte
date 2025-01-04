@@ -134,11 +134,21 @@
 			{ symbol: '⌫', altSymbol: '⌫', customClass: 'md:hidden', customTextClass: 'text-xl' }
 		],
 		[
-			{ symbol: 'LCtrl', altSymbol: 'LCtrl', customClass: 'hidden md:block' },
-			{ symbol: '⛭', altSymbol: '⛭', customClass: 'md:hidden', customTextClass: 'text-xl' },
-			{ symbol: 'Space', altSymbol: 'Space' },
-			{ symbol: 'RCtrl', altSymbol: 'RCtrl', customClass: 'hidden md:block' },
-			{ symbol: '↵', altSymbol: '↵', customClass: 'md:hidden', customTextClass: 'text-2xl' }
+			{ symbol: 'LCtrl', altSymbol: 'LCtrl', customClass: 'hidden md:block grow-0 px-16' },
+			{
+				symbol: '⛭',
+				altSymbol: '⛭',
+				customClass: 'md:hidden grow-0 px-8',
+				customTextClass: 'text-xl'
+			},
+			{ symbol: 'Space', altSymbol: 'Space', customClass: 'grow' },
+			{ symbol: 'RCtrl', altSymbol: 'RCtrl', customClass: 'hidden md:block grow-0 px-16' },
+			{
+				symbol: '↵',
+				altSymbol: '↵',
+				customClass: 'md:hidden grow-0 px-8',
+				customTextClass: 'text-2xl'
+			}
 		]
 	];
 </script>
