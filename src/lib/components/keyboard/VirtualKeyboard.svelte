@@ -38,6 +38,7 @@
 			case 'Caps Lock':
 			case '⛭':
 				isCapsLocked = !isCapsLocked;
+				isShifted = false;
 				break;
 
 			case 'LShift':
