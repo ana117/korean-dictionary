@@ -24,7 +24,7 @@
 		{word.koreanWord}
 	</p>
 	<ul class="hidden md:list-item">
-		{#each word.translations as translation}
+		{#each word.translations.slice(0, 5) as translation}
 			<li>
 				{translation.text}
 			</li>
