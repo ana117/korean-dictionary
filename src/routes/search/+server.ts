@@ -22,6 +22,49 @@ const POS_MAPPING: Record<string, string> = {
 	'수사': 'numeral',
 };
 
+const ROMANIZATION_MAPPING: Record<string, string> = {
+	'ㄱ': 'g',
+	'ㄲ': 'kk',
+	'ㄴ': 'n',
+	'ㄷ': 'd',
+	'ㄸ': 'tt',
+	'ㄹ': 'r',
+	'ㅁ': 'm',
+	'ㅂ': 'b',
+	'ㅃ': 'pp',
+	'ㅅ': 's',
+	'ㅆ': 'ss',
+	'ㅇ': '',
+	'ㅈ': 'j',
+	'ㅉ': 'jj',
+	'ㅊ': 'ch',
+	'ㅋ': 'k',
+	'ㅌ': 't',
+	'ㅍ': 'p',
+	'ㅎ': 'h',
+	'ㅏ': 'a',
+	'ㅐ': 'ae',
+	'ㅑ': 'ya',
+	'ㅒ': 'yae',
+	'ㅓ': 'eo',
+	'ㅔ': 'e',
+	'ㅕ': 'yeo',
+	'ㅖ': 'ye',
+	'ㅗ': 'o',
+	'ㅘ': 'wa',
+	'ㅙ': 'wae',
+	'ㅚ': 'oe',
+	'ㅛ': 'yo',
+	'ㅜ': 'u',
+	'ㅝ': 'wo',
+	'ㅞ': 'we',
+	'ㅟ': 'wi',
+	'ㅠ': 'yu',
+	'ㅡ': 'eu',
+	'ㅢ': 'ui',
+	'ㅣ': 'i',
+};
+
 export async function POST({ request }) {
 	const { word }: { word: string } = await request.json();
 	if (hangul.isCompleteAll(word)) {
@@ -29,6 +72,23 @@ export async function POST({ request }) {
 	}
 
 	return json(await _scrape(word));
+}
+
+const _romanize = (word: string): string => {
+	const disassembled = hangul.disassemble(word, true);
+	let romanized = '';
+	for (const group of disassembled) {
+		for (let i = 0; i < group.length; i++) {
+			const char = group[i];
+			romanized += ROMANIZATION_MAPPING[char] ?? char;
+
+			const isLast = i === group.length - 1;
+			if (isLast && char === 'ㅇ') romanized += 'ng';
+		}
+		romanized += '-';
+	}
+	romanized = romanized.slice(0, -1);
+	return romanized;
 }
 
 const _parseXML = (xml: string): KoreanWord[] => {
@@ -70,6 +130,7 @@ const _parseXML = (xml: string): KoreanWord[] => {
 		results.push({
 			code: item.target_code,
 			koreanWord: item.word,
+			romanization: _romanize(item.word),
 			translations: translations,
 			partOfSpeech: POS_MAPPING[item.pos] ?? '-',
 		});
@@ -133,8 +194,6 @@ const _parseHTML = (html: string): KoreanWord[] => {
 		if (sound) {
 			const soundRef = sound.getAttribute('href') ?? null;
 			if (soundRef && soundRef.startsWith("javascript:fnSoundPlay('")) {
-				console.log('found sound ref:', soundRef.split("'")[1]);
-				
 				const soundParent = sound.parentElement;
 				const pronounciationText = soundParent?.textContent?.replace('듣기', '').trim();
 
@@ -154,6 +213,7 @@ const _parseHTML = (html: string): KoreanWord[] => {
 		results.push({
 			code: code,
 			koreanWord: koreanWord,
+			romanization: _romanize(koreanWord),
 			translations: translations,
 			partOfSpeech: partOfSpeech.toLowerCase(),
 			pronounciation: pronounciation

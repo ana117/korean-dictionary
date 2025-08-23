@@ -45,8 +45,10 @@
 			class="sticky top-0 h-16 w-full flex-col items-center gap-2 bg-background pt-5 mb-6"
 		>
 			<div class="flex justify-center border-b-2 pb-2 bg-background border-foreground/25">
-				<h2 class="text-3xl font-bold">
-					{word.koreanWord}
+				<h2>
+					<span class="text-3xl font-bold">{word.koreanWord}</span>
+					<br />
+					<span class="text-lg">{word.romanization}</span>
 				</h2>
 				<a href={externalLink} target="_blank" rel="noopener noreferrer" class="group relative">
 					<span class="sr-only"> External link to the Korean Dictionary </span>
@@ -90,7 +92,7 @@
 		</div>
 
 
-		<div class="w-full overflow-y-auto py-4 mt-5">
+		<div class="w-full overflow-y-auto py-4 mt-10">
 			<ul>
 				{#each word.translations as translation, i}
 					<li class="mb-4 text-xl">
