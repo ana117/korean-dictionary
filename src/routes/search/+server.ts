@@ -1,5 +1,5 @@
 import { KRDICT_API_KEY } from '$env/static/private';
-import type { KoreanTranslation, KoreanWord } from '$lib/types';
+import type { KoreanTranslation, KoreanWord, Pronounciation } from '$lib/types';
 import { json } from '@sveltejs/kit';
 import { XMLParser } from 'fast-xml-parser';
 import { parseHTML } from 'linkedom';
@@ -8,6 +8,19 @@ import { default as hangul } from 'hangul-js';
 const API_URL = 'https://krdict.korean.go.kr/api/search';
 const SCRAPE_URL =
 	'https://krdict.korean.go.kr/eng/dicMarinerSearch/search?nation=eng&nationCode=6&sort=C&mainSearchWord=';
+
+const POS_MAPPING: Record<string, string> = {
+	'명사': 'noun',
+	'동사': 'verb',
+	'형용사': 'adjective',
+	'대명사': 'pronoun',
+	'부사': 'adverb',
+	'어미': 'ending',
+	'조사': 'particle',
+	'관형사': 'determiner',
+	'감탄사': 'interjection',
+	'수사': 'numeral',
+};
 
 export async function POST({ request }) {
 	const { word }: { word: string } = await request.json();
@@ -57,7 +70,8 @@ const _parseXML = (xml: string): KoreanWord[] => {
 		results.push({
 			code: item.target_code,
 			koreanWord: item.word,
-			translations: translations
+			translations: translations,
+			partOfSpeech: POS_MAPPING[item.pos] ?? '-',
 		});
 	}
 
@@ -114,10 +128,35 @@ const _parseHTML = (html: string): KoreanWord[] => {
 			});
 		}
 
+		let pronounciation: Pronounciation | undefined = undefined;
+		const sound = item.querySelector('.sound');
+		if (sound) {
+			const soundRef = sound.getAttribute('href') ?? null;
+			if (soundRef && soundRef.startsWith("javascript:fnSoundPlay('")) {
+				console.log('found sound ref:', soundRef.split("'")[1]);
+				
+				const soundParent = sound.parentElement;
+				const pronounciationText = soundParent?.textContent?.replace('듣기', '').trim();
+
+				pronounciation = {
+					pronounciationText: pronounciationText ?? '-',
+					audioUrl: soundRef.split("'")[1]
+				};
+			}
+		}
+
+		const posContainer = item.querySelector('.word_att_type1')?.querySelector('.manyLang6');
+		const partOfSpeech = posContainer
+			? _cleanWord(posContainer.textContent?.replaceAll(/\s+/g, ' ') ?? '')
+			: '-';
+		
+
 		results.push({
 			code: code,
 			koreanWord: koreanWord,
-			translations: translations
+			translations: translations,
+			partOfSpeech: partOfSpeech.toLowerCase(),
+			pronounciation: pronounciation
 		});
 	}
 
