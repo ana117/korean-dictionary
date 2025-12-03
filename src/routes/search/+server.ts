@@ -121,11 +121,15 @@ const _parseXML = (xml: string): KoreanWord[] => {
 
 		for (const s of senses) {
 			const translation = s.translation;
+			if (!translation) continue;
+
 			translations.push({
 				text: translation.trans_word,
 				definition: translation.trans_dfn
 			});
 		}
+
+		if (translations.length === 0) continue;
 
 		results.push({
 			code: item.target_code,
